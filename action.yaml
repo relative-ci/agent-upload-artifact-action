@@ -1,0 +1,32 @@
+name: 'RelativeCI agent upload artifacts'
+description: 'Upload RelativeCI artifacts'
+branding:
+  icon: 'box'
+  color: 'blue'
+inputs:
+  artifactName:
+    description: 'Artifact to download when running in workflow_run'
+    required: false
+    default: 'relative-ci-artifacts'
+  artifactWebpackStatsFile:
+    description: 'Path to your local webpack stats file'
+    required: false
+    default: 'webpack-stats.json'
+runs:
+  using: "composite"
+  steps:
+    - name: Prepare artifacts folder
+      id: artifacts-dir
+      run: |
+        TMP_ARTIFACT_DIR=$RUNNER_TEMP/$ARTIFACT_NAME
+        mkdir $TMP_ARTIFACT_DIR
+        cp $ARTIFACT_WEBPACK_STATS_FILE $TMP_ARTIFACT_DIR/webpack-stats.json
+        echo "::set-output name=tmpArtifactDir::${TMP_ARTIFACT_DIR}"
+      env:
+        ARTIFACT_NAME: ${{ inputs.artifactName }}
+        ARTIFACT_WEBPACK_STATS_FILE: ${{ inputs.artifactWebpackStatsFile }}
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ inputs.artifactName }}
+        path: ${{ steps.artifacts-dir.outputs.tmpArtifactDir }}
