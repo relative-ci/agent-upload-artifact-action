@@ -22,6 +22,7 @@ runs:
         mkdir $TMP_ARTIFACT_DIR
         cp $ARTIFACT_WEBPACK_STATS_FILE $TMP_ARTIFACT_DIR/webpack-stats.json
         echo "::set-output name=tmpArtifactDir::${TMP_ARTIFACT_DIR}"
+      shell: bash
       env:
         ARTIFACT_NAME: ${{ inputs.artifactName }}
         ARTIFACT_WEBPACK_STATS_FILE: ${{ inputs.artifactWebpackStatsFile }}
