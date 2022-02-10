@@ -16,6 +16,10 @@ inputs:
     description: 'Artifact webpack stats file name'
     required: false
     default: weebpack-stats.json
+  retentionPeriod:
+    description: actions/upload-artifact retention-period value
+    required: false
+    default: 90
 
 runs:
   using: "composite"
@@ -37,3 +41,4 @@ runs:
       with:
         name: ${{ inputs.artifactName }}
         path: ${{ steps.artifacts-dir.outputs.tmpArtifactDir }}
+        retention-period: ${{ inputs.retentionPeriod }
