@@ -34,7 +34,7 @@ jobs:
       # Build bundle and output webpack stats
       - run: npm run build -- --json > webpack-stats.json
       
-      # Upload artifact to share with relative-ci/agent-action
+      # Upload relative-ci-artifact/webpack-stats.json to share with relative-ci/agent-action
       - name: Upload webpack stats artifact
         uses: relative-ci/agent-upload-artifact-action@v1
         with:

@@ -1,5 +1,5 @@
-name: 'RelativeCI agent upload artifacts'
-description: 'Upload RelativeCI artifacts'
+name: 'RelativeCI agent upload artifact'
+description: 'Upload RelativeCI artifact'
 branding:
   icon: 'box'
   color: 'blue'
@@ -9,7 +9,7 @@ inputs:
     required: false
     default: './webpack-stats.json'
   artifactName:
-    description: 'Artifact to download when running in workflow_run'
+    description: 'Artifact name to upload'
     required: false
     default: 'relative-ci-artifacts'
   artifactWebpackStatsFile:
@@ -24,7 +24,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Prepare artifacts folder
+    - name: Prepare artifacts
       id: artifacts-dir
       run: |
         TMP_ARTIFACT_DIR=$RUNNER_TEMP/$ARTIFACT_NAME
