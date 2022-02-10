@@ -55,6 +55,6 @@ jobs:
 
 (default: `webpack-stats.json`) The artifact webpack stats file name
 
-## `retentionPeriod`
+## `retentionDays`
 
-(default: `90`) [actions/upload-artifact `retention-period` input](https://github.com/actions/upload-artifact#retention-period)
+(default: `90`) [actions/upload-artifact `retention-days` input](https://github.com/actions/upload-artifact#retention-period)
