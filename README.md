@@ -6,7 +6,7 @@ The artifact will be available on the workflow page (see: actions/upload-artifac
 
 ---
 
-To get started, follow [RelativeCI Setup guide](https://relative-ci.com/documentation/setup?utm_source=GitHub&utm_medium=agent-action).
+To get started, follow [RelativeCI Setup guide](https://relative-ci.com/documentation/setup/agent/action?utm_source=GitHub&utm_medium=agent-upload-artifact-action).
 
 ## Example usage
 
