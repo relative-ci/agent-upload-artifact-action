@@ -36,7 +36,7 @@ jobs:
       
       # Upload relative-ci-artifact/webpack-stats.json to share with relative-ci/agent-action
       - name: Upload webpack stats artifact
-        uses: relative-ci/agent-upload-artifact-action@v1
+        uses: relative-ci/agent-upload-artifact-action@v1.0.1
         with:
           webpackStatsFile: './webpack-stats.json
 ```
