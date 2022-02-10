@@ -4,14 +4,19 @@ branding:
   icon: 'box'
   color: 'blue'
 inputs:
+  webpackStatsFile:
+    description: 'Path to your local webpack stats file'
+    required: false
+    default: './webpack-stats.json'
   artifactName:
     description: 'Artifact to download when running in workflow_run'
     required: false
     default: 'relative-ci-artifacts'
   artifactWebpackStatsFile:
-    description: 'Path to your local webpack stats file'
+    description: 'Artifact webpack stats file name'
     required: false
-    default: 'webpack-stats.json'
+    default: weebpack-stats.json
+
 runs:
   using: "composite"
   steps:
@@ -20,10 +25,11 @@ runs:
       run: |
         TMP_ARTIFACT_DIR=$RUNNER_TEMP/$ARTIFACT_NAME
         mkdir $TMP_ARTIFACT_DIR
-        cp $ARTIFACT_WEBPACK_STATS_FILE $TMP_ARTIFACT_DIR/webpack-stats.json
+        cp $WEBPACK_STATS_FILE $TMP_ARTIFACT_DIR/$ARTIFACT_WEBPACK_STATS_FILE
         echo "::set-output name=tmpArtifactDir::${TMP_ARTIFACT_DIR}"
       shell: bash
       env:
+        WEBPACK_STATS_FILE: ${{ inputs.webpackStatsFile }}
         ARTIFACT_NAME: ${{ inputs.artifactName }}
         ARTIFACT_WEBPACK_STATS_FILE: ${{ inputs.artifactWebpackStatsFile }}
     - name: Upload artifacts
