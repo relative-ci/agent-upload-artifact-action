@@ -15,7 +15,7 @@ inputs:
   artifactWebpackStatsFile:
     description: 'Artifact webpack stats file name'
     required: false
-    default: weebpack-stats.json
+    default: webpack-stats.json
   retentionDays:
     description: actions/upload-artifact retention-days value
     required: false
