@@ -1,6 +1,6 @@
 {
   "name": "@relative-ci/agent-upload-artifacts-action",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "GitHub action that uploads RelativeCI artifacts",
   "repository": "relative-ci/agent-upload-artifacts-action",
   "keywords": [
