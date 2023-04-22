@@ -30,7 +30,6 @@ runs:
         TMP_ARTIFACT_DIR=$RUNNER_TEMP/$ARTIFACT_NAME
         mkdir $TMP_ARTIFACT_DIR
         cp $WEBPACK_STATS_FILE $TMP_ARTIFACT_DIR/$ARTIFACT_WEBPACK_STATS_FILE
-        echo "::set-output name=tmpArtifactDir::${TMP_ARTIFACT_DIR}"
         echo "tmpArtifactDir=${TMP_ARTIFACT_DIR}" >> $GITHUB_OUTPUT
       shell: bash
       env:
