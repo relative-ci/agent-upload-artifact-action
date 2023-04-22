@@ -23,10 +23,10 @@ on:
 jobs:
   build:
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
 
       # Install dependencies
       - run: npm ci
@@ -45,7 +45,7 @@ jobs:
 
 ### `webpackStatsFile`
 
-(default: `./webpack-stats.json`) Relative path to the generated webpack stats file
+(default: `./webpack-stats.json`) Relative path to the generated bundle stats file
 
 ### `artifactName`
 
@@ -53,7 +53,7 @@ jobs:
 
 ### `artifactWebpackStatsFile`
 
-(default: `webpack-stats.json`) The artifact webpack stats file name
+(default: `webpack-stats.json`) The artifact bundle stats file name
 
 ## `retentionDays`
 
