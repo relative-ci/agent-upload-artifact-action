@@ -1,5 +1,5 @@
 name: 'RelativeCI agent upload artifact'
-description: 'Upload RelativeCI artifact'
+description: 'Upload RelativeCI artifact to share with relative-ci/agent-action'
 branding:
   icon: 'box'
   color: 'blue'
